@@ -1,4 +1,4 @@
-# Jenkins with Docker
+# Jenkins with Docker Compose
 
 ## Configuring Jenkins
 
