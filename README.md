@@ -15,7 +15,7 @@
    docker-compose up -d
    ```
 
-3. Get password to proceed installation:
+3. Get the password to proceed installation:
 
    ```bash
    docker logs jenkins | less
