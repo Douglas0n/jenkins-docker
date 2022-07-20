@@ -1,5 +1,7 @@
 # Jenkins with Docker Compose
 
+Jenkins docker compose file (and instructions) to configure your jenkins controller and agent.
+
 ## Configuring Jenkins
 
 1. Create a file named **.env** and add the following:
