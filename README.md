@@ -4,28 +4,34 @@ Jenkins docker compose file (and instructions) to configure your jenkins control
 
 ## Configuring Jenkins
 
-1. Create a file named **.env** and add the following:
+1. Create the **jenkins_home** folder in your local environment
+
+   ```
+   mkdir jenkins_sandbox_home
+   ```
+
+2. Create a file named **.env** and add the following:
 
    ```yml
-   USER_NAME=<< username here >> # to create the docker volume.
+   JENKINS_HOME_PATH=/home/user/jenkins_sandbox_home # your local jenkins_home path.
    JENKINS_AGENT_SSH_PUBLIC_KEY=<< leave empty for now >>
    ```
 
-2. Run Jenkins controller:
+3. Run Jenkins controller:
 
    ```bash
    docker-compose up -d
    ```
 
-3. Get the password to proceed installation:
+4. Get the password to proceed installation:
 
    ```bash
-   docker logs jenkins | less
+   docker logs jenkins_sandbox | less
    ```
 
-4. Go to <http://localhost:8080/> and enter the password.
+5. Go to <http://localhost:8080/> and enter the password.
 
-5. Select **Install Suggested Plugins**, create the **admin** user and password, and leave the Jenkins URL <http://localhost:8080/>.
+6. Select **Install Suggested Plugins**, create the **admin** user and password, and leave the Jenkins URL <http://localhost:8080/>.
 
 ## Configuring Jenkins Agent
 
@@ -35,9 +41,9 @@ Jenkins docker compose file (and instructions) to configure your jenkins control
    ssh-keygen -t rsa -f jenkins_key
    ```
 
-2. Go to Jenkins and to **Manage jenkins** > **Manage credentials**.
+2. Go to Jenkins and click **Manage jenkins** > **Manage credentials**.
 
-3. Go to Jenkins, under **Stores scoped to Jenkins**, click **Global credentials**, next click **Add credentials** and set the following options:
+3. Under **Stores scoped to Jenkins**, click **Global credentials**, next click **Add credentials** and set the following options:
 
    - Select **SSH Username with private key**.
    - Limit the scope to **System**.
